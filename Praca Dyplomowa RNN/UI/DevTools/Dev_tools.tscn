@@ -1,0 +1,166 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/DevTools/Dev_tools.gd" type="Script" id=1]
+
+[node name="Dev_tools" type="Control"]
+script = ExtResource( 1 )
+
+[node name="UI" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0.603922, 0.0392157, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -181.0
+margin_bottom = 295.0
+color = Color( 0.27451, 0.27451, 0.27451, 1 )
+
+[node name="mode" type="ColorRect" parent="UI/ColorRect2"]
+visible = false
+margin_left = -1.0
+margin_top = 17.0
+margin_right = 46.0
+margin_bottom = 45.0
+color = Color( 0.478431, 1, 0, 1 )
+
+[node name="Label" type="Label" parent="UI/ColorRect2"]
+margin_right = 68.0
+margin_bottom = 29.0
+text = "Spawn"
+
+[node name="Button" type="Button" parent="UI/ColorRect2"]
+margin_top = 21.0
+margin_right = 43.0
+margin_bottom = 41.0
+focus_mode = 0
+text = "rat"
+
+[node name="SpinBox" type="SpinBox" parent="UI/ColorRect2"]
+visible = false
+margin_left = 54.0
+margin_top = 19.0
+margin_right = 128.0
+margin_bottom = 43.0
+min_value = 1.0
+value = 1.0
+
+[node name="Label2" type="Label" parent="UI/ColorRect2"]
+margin_left = 2.0
+margin_top = 114.0
+margin_right = 42.0
+margin_bottom = 128.0
+text = "0"
+
+[node name="CheckBox" type="CheckBox" parent="UI/ColorRect2"]
+margin_left = 84.0
+margin_top = 19.0
+margin_right = 108.0
+margin_bottom = 43.0
+
+[node name="team" type="SpinBox" parent="UI/ColorRect2"]
+margin_left = 87.0
+margin_top = 114.0
+margin_right = 161.0
+margin_bottom = 138.0
+max_value = 2.0
+
+[node name="Label3" type="Label" parent="UI/ColorRect2"]
+margin_left = 87.0
+margin_top = 95.0
+margin_right = 163.0
+margin_bottom = 109.0
+text = "Select team"
+
+[node name="Label4" type="Label" parent="UI/ColorRect2"]
+margin_left = 87.0
+margin_top = 1.0
+margin_right = 147.0
+margin_bottom = 15.0
+text = "Rapid fire"
+
+[node name="Label5" type="Label" parent="UI/ColorRect2"]
+margin_left = 1.0
+margin_top = 94.0
+margin_right = 74.0
+margin_bottom = 108.0
+text = "Rat count"
+
+[node name="timescale" type="Control" parent="UI/ColorRect2"]
+margin_left = 1.0
+margin_top = 114.0
+margin_right = 41.0
+margin_bottom = 154.0
+
+[node name="Label" type="Label" parent="UI/ColorRect2/timescale"]
+margin_top = 40.0
+margin_right = 65.0
+margin_bottom = 54.0
+text = "Timescale"
+
+[node name="Label2" type="Label" parent="UI/ColorRect2/timescale"]
+margin_left = 74.0
+margin_top = 40.0
+margin_right = 139.0
+margin_bottom = 54.0
+
+[node name="timescaleN" type="SpinBox" parent="UI/ColorRect2/timescale"]
+margin_left = -1.0
+margin_top = 61.0
+margin_right = 73.0
+margin_bottom = 85.0
+min_value = 1.0
+step = 10.0
+value = 1.0
+
+[node name="food" type="Control" parent="UI/ColorRect2"]
+margin_left = 2.0
+margin_top = 49.0
+margin_right = 42.0
+margin_bottom = 89.0
+
+[node name="mode" type="ColorRect" parent="UI/ColorRect2/food"]
+visible = false
+margin_left = -2.0
+margin_top = 5.0
+margin_right = 52.0
+margin_bottom = 33.0
+color = Color( 0.478431, 1, 0, 1 )
+
+[node name="food_button" type="Button" parent="UI/ColorRect2/food"]
+margin_left = -2.0
+margin_top = 9.0
+margin_right = 45.0
+margin_bottom = 29.0
+text = "food"
+
+[node name="Crosshair" type="Node2D" parent="UI"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="UI/Crosshair"]
+visible = false
+margin_left = -1.0
+margin_top = -17.0
+margin_right = 1.0
+margin_bottom = 17.0
+
+[node name="ColorRect2" type="ColorRect" parent="UI/Crosshair"]
+visible = false
+margin_left = 17.0
+margin_top = -1.0
+margin_right = 19.0
+margin_bottom = 33.0
+rect_rotation = 90.0
+
+[connection signal="pressed" from="UI/ColorRect2/Button" to="." method="_on_Button_pressed"]
+[connection signal="changed" from="UI/ColorRect2/SpinBox" to="." method="_on_SpinBox_changed"]
+[connection signal="value_changed" from="UI/ColorRect2/timescale/timescaleN" to="." method="_on_timescaleN_value_changed"]
+[connection signal="pressed" from="UI/ColorRect2/food/food_button" to="." method="_on_food_button_pressed"]

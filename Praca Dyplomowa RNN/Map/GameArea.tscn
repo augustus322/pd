@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/Camera/MainCamera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Map/Textures/blank.png" type="Texture" id=2]
+[ext_resource path="res://Entity/Placeholder/MapObjects/Food/Borgar/Borgar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Map/GameArea.gd" type="Script" id=5]
+[ext_resource path="res://UI/DevTools/V2/DevToolsV2.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31, 339.5 )
+
+[node name="GameArea" type="Node2D"]
+position = Vector2( 8, 0 )
+script = ExtResource( 5 )
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Texture" type="Sprite" parent="Ground"]
+modulate = Color( 0.109804, 0.623529, 0.0196078, 1 )
+position = Vector2( 18.0002, 119 )
+scale = Vector2( 183.031, 128.094 )
+texture = ExtResource( 2 )
+
+[node name="Hills" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hills"]
+position = Vector2( -325, -184 )
+
+[node name="Sprite" type="Sprite" parent="Hills/StaticBody2D"]
+modulate = Color( 0.407843, 0.313726, 0.172549, 1 )
+position = Vector2( 0, 305 )
+scale = Vector2( 1, 10.5313 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hills/StaticBody2D"]
+position = Vector2( 0, 305.5 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Hills"]
+position = Vector2( 761, -177 )
+
+[node name="Sprite" type="Sprite" parent="Hills/StaticBody2D2"]
+modulate = Color( 0.407843, 0.313726, 0.172549, 1 )
+position = Vector2( 0, 305 )
+scale = Vector2( 1, 10.5313 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hills/StaticBody2D2"]
+position = Vector2( 0, 305.5 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Hills"]
+position = Vector2( -325, -184 )
+rotation = -1.59494
+scale = Vector2( 1.75891, 1.8005 )
+
+[node name="Sprite" type="Sprite" parent="Hills/StaticBody2D3"]
+modulate = Color( 0.407843, 0.313726, 0.172549, 1 )
+position = Vector2( 0, 305 )
+scale = Vector2( 1, 10.5313 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hills/StaticBody2D3"]
+position = Vector2( 0, 305.5 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Hills"]
+position = Vector2( -315, 459 )
+rotation = -1.59494
+scale = Vector2( 1.75891, 1.8005 )
+
+[node name="Sprite" type="Sprite" parent="Hills/StaticBody2D4"]
+modulate = Color( 0.407843, 0.313726, 0.172549, 1 )
+position = Vector2( 0, 305 )
+scale = Vector2( 1, 10.5313 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hills/StaticBody2D4"]
+position = Vector2( 0, 305.5 )
+shape = SubResource( 1 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 504, 300 )
+current = true
+
+[node name="Node2D" type="Node2D" parent="Camera2D"]
+z_index = 100
+
+[node name="DevToolsV2" parent="Camera2D/Node2D" instance=ExtResource( 6 )]
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Borgar" parent="." instance=ExtResource( 4 )]
+position = Vector2( 279, 40 )
